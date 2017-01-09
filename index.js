@@ -6,18 +6,14 @@ var path = require('path');
 
 
 // viewed at http://localhost:8080
-//app.get('/', function(req, res) {
-  //  res.sendFile(path.join(__dirname + '/index.html'));
-//});
 
 app.use(express.static(__dirname + "/public"));
 
-app.use('/[a-zA-Z0-9., ]+/', function(req, res) {
-   res.end(writeME(req.params));
+app.get('/:date',function(req,res){
+  var input = decodeURI(req.params.date);
+  
+  res.send("hello " + input);
 });
-
-
-
 
 app.listen(process.env.PORT || 8080);
 
