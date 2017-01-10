@@ -26,13 +26,10 @@ app.get('/:date', function (req, res) {
     var unix = moment(input).unix();
     output = { "unix": unix, "natural": input }
   }
+  else{
+    output = { "unix": null, "natural": null }
+  }
 
-
-
-
-  // var output = moment(day).format('MM DD YYYY');
-
- // res.send("hello " + input);
 
   res.json(output)
 });
